@@ -1,0 +1,545 @@
+:root {
+    /* ### Colors */
+
+    /* ## Neutral */
+
+    --clr-palette-neutral-100: hsl(0, 0%, 100%);
+    --clr-palette-neutral-200: hsl(0, 0%, 98%);
+    --clr-palette-neutral-500: hsl(0, 0%, 41%);
+    --clr-palette-neutral-800: hsl(0, 0%, 8%);
+
+    /* ### Typography */
+
+    /* ##font sizes  */
+    --fs-header: clamp(2.25rem, 7vw, 5rem);
+    --fs-body: clamp(1rem, 4vw, 1.125rem);
+    --fs-nav: 1rem;
+    /* ## font family  */
+    --ff-primary: 'Epilogue', sans-serif;
+
+    --fw-500: 500;
+    --fw-700: 700;
+
+
+    --br: 0.9375rem;
+}
+
+@media (min-width: 48em) {
+    :root {
+        --fs-nav: 0.875rem;
+    }
+}
+
+html {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--clr-palette-neutral-500);
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-500);
+    line-height: 1.6em;
+    margin: 0;
+    min-height: 100vh;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li,
+a {
+    font-style: inherit;
+    color: inherit;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+button {
+    all: unset;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+
+picture,
+img {
+    max-width: 100%;
+
+}
+
+.flow-content>*+* {
+    margin-top: var(--gap, 1rem);
+
+}
+
+
+/* header section  */
+
+header.container {
+    max-width: 85rem;
+    width: 100%;
+}
+
+header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem 1.5rem;
+}
+
+
+/* nav section  */
+
+.nav {
+    font-size: var(--fs-nav);
+
+}
+
+.nav__list {
+    display: none;
+
+}
+
+.nav__list a {
+    font-size: var(--fs-nav);
+}
+
+.open.nav {
+    position: absolute;
+    width: 100%;
+    max-width: 15rem;
+    inset: 0;
+    margin-left: auto;
+    background-color: var(--clr-palette-neutral-100);
+    padding: 1.375rem 1.3125rem 7.75rem 1.5rem;
+    height: 100vh;
+    transition: all .25s;
+}
+
+.open .nav__toggle--open {
+    display: none;
+}
+
+.nav__toggle--close {
+    display: none;
+}
+
+.open .nav__toggle--close {
+    display: block;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.open .nav__list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2rem;
+    line-height: 1.6em;
+}
+
+.drop-menu {
+    width: 100%;
+    height: 0;
+    display: none;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.arrow {
+    width: 100%;
+}
+
+.arrow .arrow-img {
+    position: relative;
+}
+
+.arrow .arrow-img::after {
+    content: '';
+    inset: 0;
+    position: absolute;
+    background-image: url('../images/icon-arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: center right;
+    transform: translateX(25%);
+}
+
+.selected.arrow .arrow-img::after {
+    background-image: url('../images/icon-arrow-up.svg');
+}
+
+.drop-menu {
+    max-width: 7.4375rem;
+    margin-left: 1.5rem;
+}
+
+.features-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.features-list img {
+    margin-right: 1rem;
+}
+
+.selected .drop-menu {
+    --gap: 1rem;
+    display: block;
+}
+
+.selected.arrow .todo-list,
+.selected.arrow+.company,
+.selected.arrow.company {
+    margin-top: 1.5rem;
+}
+
+.selected.arrow+.careers {
+    margin-top: 1.5rem;
+}
+
+.selected.arrow .history {
+    margin-top: 1.125rem;
+}
+
+.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login {
+    margin-top: 2rem;
+}
+
+.outline {
+    --br: 0.875rem;
+    width: 100%;
+    max-width: 7.4375rem;
+    margin-top: 1rem;
+    text-align: center;
+    line-height: 1.5;
+    border: 1.5px solid var(--clr-palette-neutral-500);
+    border-radius: var(--br);
+    padding: 0.8125rem 2.5rem;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: var(--clr-palette-neutral-800);
+    opacity: .75;
+    z-index: 0;
+}
+
+.open.overlay {
+    display: block;
+}
+
+
+/* hero section  */
+
+.hero {
+    text-align: center;
+}
+
+.hero.container {
+    width: 100%;
+    max-width: 72rem;
+}
+
+
+.hero__img img {
+    max-width: none;
+    width: 100%;
+    height: 281px;
+    object-fit: cover;
+}
+
+.hero__content {
+    max-width: 33.75rem;
+    padding: 3rem 1rem 0;
+}
+
+
+.hero__content .fs-header {
+    color: var(--clr-palette-neutral-800);
+    font-size: var(--fs-header);
+    font-weight: var(--fw-700);
+    line-height: 1;
+}
+
+.hero__content p {
+    margin: 1rem 0 1.5rem;
+}
+
+.hero.container .hero__img {
+    width: 100%;
+}
+
+.hero__clients {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.databiz {
+    width: 5.0625rem;
+}
+
+.audiophile {
+    width: 3.3125rem;
+}
+
+.meet {
+    width: 4rem;
+}
+
+.maker {
+    width: 3.6875rem;
+}
+
+.btn {
+    background-color: var(--clr-palette-neutral-800);
+    color: var(--clr-palette-neutral-200);
+    padding: 0.75rem 1.25rem 0.75rem 1.5rem;
+    border-radius: var(--br);
+}
+
+@media (min-width: 48em) {
+
+    header {
+        justify-content: flex-start;
+        padding: 1.3125rem 1.5em 4.1875rem;
+    }
+
+    .nav {
+        flex: 1;
+    }
+
+    .nav__toggle--container {
+        display: none;
+    }
+
+    .nav__list {
+        --gap: 0;
+        display: flex;
+        align-items: center;
+    }
+
+
+    .nav__list li {
+        cursor: pointer;
+        margin-left: 2.5rem;
+    }
+
+    .nav__list li:active,
+    .nav__list li:hover {
+        color: var(--clr-palette-neutral-800);
+    }
+
+    .nav__list .features {
+        margin-left: 3.75rem;
+    }
+
+    .nav__list .company {
+        margin-left: 3rem;
+    }
+
+    .nav__list .careers {
+        margin-left: 3rem;
+    }
+
+    .arrow {
+        width: auto;
+    }
+
+    .arrow:hover .arrow-img::after,
+    .arrow:active .arrow-img::after {
+        filter: brightness(0) invert(0);
+    }
+
+
+    .drop-menu {
+        --br: 0.625rem;
+
+        position: absolute;
+        text-align: left;
+        margin-top: 1.25rem;
+        padding: 1.5rem;
+        border-radius: var(--br);
+        background-color: var(--clr-palette-neutral-100);
+        box-shadow: 0px 0.625rem 2.5rem 0px hsla(0, 0%, 0%, 0.15);
+        margin-left: 0;
+    }
+
+    .drop-menu--1 {
+        max-width: 9.5625rem;
+        transform: translateX(-70px);
+    }
+
+    .drop-menu--2 {
+        max-width: 7.25rem;
+    }
+
+
+    .center {
+        margin: 0;
+        text-align: left;
+    }
+
+    .left {
+        margin-right: 0;
+        margin-left: auto !important;
+    }
+
+    .drop-menu li {
+        margin-left: 0;
+    }
+
+    .selected.arrow .todo-list,
+    .selected.arrow+.company,
+    .selected.arrow.company {
+        margin-top: 0;
+    }
+
+    .selected.arrow+.careers {
+        margin-top: 0;
+    }
+
+    .todo-list {
+        margin-top: 0;
+    }
+
+    .history {
+        margin-top: 0;
+    }
+
+    .login {
+        margin-top: 0;
+    }
+
+    .outline {
+        width: auto;
+        margin-top: 0;
+        max-width: 6.5rem;
+        padding: 0.8125rem 1.375rem;
+    }
+
+    .outline:hover,
+    .outline:active {
+        border: 1.5px solid var(--clr-palette-neutral-800);
+    }
+
+
+    .hero.container {
+        width: 95%;
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        text-align: left;
+    }
+
+    .hero__img img {
+        display: block;
+        max-width: 100%;
+        width: auto;
+        height: 640px;
+        object-fit: cover;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .hero__content {
+        margin-right: 1.5em;
+        padding: 8.25rem 0 0;
+    }
+
+    .hero__content p {
+        margin: 3rem 0 3.1875rem;
+        padding-right: 4rem;
+    }
+
+    .hero__clients {
+        margin-top: 6.75rem;
+    }
+
+
+    .databiz,
+    .audiophile,
+    .meet,
+    .maker {
+
+        width: auto;
+    }
+
+    .btn {
+        cursor: pointer;
+        transition: all .25s ease-in-out;
+    }
+
+    .btn:hover,
+    .btn:active {
+        background: transparent;
+        color: var(--clr-palette-neutral-800);
+        border: 1px solid var(--clr-palette-neutral-800);
+    }
+}
+
+
+/* footer section  */
+.attribution {
+    position: absolute;
+    inset: auto 0 0;
+    font-size: 0.6875rem;
+    text-align: center;
+}
+
+.attribution a {
+    font-weight: var(--fw-700);
+    color: var(--clr-palette-neutral-800);
+}

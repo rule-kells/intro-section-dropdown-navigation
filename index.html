@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap" rel="stylesheet">
+
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+</head>
+
+<body>
+  <header class="container">
+
+    <img src="./images/logo.svg" alt="">
+
+    <div class="overlay"></div>
+    <nav class="nav">
+
+      <div class="nav__toggle--container">
+        <img src="./images/icon-menu.svg" alt="open nav menu" class="nav__toggle--open">
+        <img src="./images/icon-close-menu.svg" alt="close nav menu" class="nav__toggle--close">
+      </div>
+
+      <ul class="nav__list flow-content">
+        <li class="arrow features"><a class="arrow-img" href="#">Features</a>
+          <ul class="drop-menu drop-menu--1 flow-content">
+            <li class="features-list todo-list"><img src="./images/icon-todo.svg" alt="todo list"><a href="#"> Todo
+                List</a></li>
+            <li class="features-list calendar"><img src="./images/icon-calendar.svg" alt="calendar"><a
+                href="#">Calendar</a></li>
+            <li class="features-list reminders"><img src="./images/icon-reminders.svg" alt="reminders"><a href="#">
+                Reminders</a></li>
+            <li class="features-list planning"><img src="./images/icon-planning.svg" alt="planning"><a href="#">
+                Planning</a></li>
+          </ul>
+        </li>
+        <li class="arrow company"><a class="arrow-img" href="#">Company</a>
+          <ul class="drop-menu drop-menu--2 flow-content">
+            <li class="history">History</li>
+            <li class="our-team"><a href="#">Our Team</a></li>
+            <li class="blog"><a href="#">Blog</a></li>
+          </ul>
+        </li>
+        <li class="careers"><a href="#">Careers</a></li>
+        <li class="about"><a href="#">About</a></li>
+        <li class="center left"><button class="btn-nav login">Login</button></li>
+        <li><button class="btn-nav outline">Register</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="hero container">
+    <picture class="hero__img">
+      <source srcset="images/image-hero-desktop.png" media="(min-width: 768px)">
+      <img src="./images/image-hero-mobile.png" alt="a man on a laptop" />
+    </picture>
+
+    <div class="hero__content">
+      <h1 class="fs-header">Make remote work</h1>
+      <p>
+        Get your team in sync, no matter your location. Streamline processes,
+        create team rituals, and watch productivity soar.
+      </p>
+      <button class="btn">Learn more</button>
+      <ul class="hero__clients">
+        <li><img src="./images/client-databiz.svg" alt="databiz" class="databiz"></li>
+        <li><img src="./images/client-audiophile.svg" alt="audiophile" class="audiophile"></li>
+        <li><img src="./images/client-meet.svg" alt="meet" class="meet"></li>
+        <li><img src="./images/client-maker.svg" alt="maker" class="maker"></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Kellen Ruyle</a>.
+  </footer>
+
+  <script src="./main.js"></script>
+
+</body>
+
+</html>
